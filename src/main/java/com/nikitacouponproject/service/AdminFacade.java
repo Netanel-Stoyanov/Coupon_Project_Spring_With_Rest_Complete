@@ -83,7 +83,6 @@ public class AdminFacade extends ClientAbstract {
     @Transactional
     public void deleteCompany(int companyId) {
         synchronized (Lock.company()) {
-            customerRepository.deleteAllCouponsById(companyId);
             couponRepository.deleteAllByCompanyId(companyId);
             companyRepository.deleteById(companyId);
         }
